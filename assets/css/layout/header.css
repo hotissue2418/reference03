@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Header
+   상단 고정 바 : 좌(공식 웹사이트/바로가기) · 중앙(블루 타이틀 바, 500px) · 우(로그인/글로벌)
+   ========================================================================== */
+
+.header{overflow:visible; background:#f9f9f9;}
+
+.top-bar{position:fixed; top:0; left:0; z-index:1009; display:grid; grid-template-columns:calc(50% - 25rem) 1fr calc(50% - 25rem); box-sizing:border-box; width:100%; min-width:140rem;}
+.top-bar .left-area,
+.top-bar .right-area{display:flex; align-items:center; justify-content:space-between; box-sizing:border-box; width:100%; height:6rem; padding:0 5%; font-size:1.6rem;}
+.top-bar a{color:#222; text-decoration:none; letter-spacing:-0.5px;}
+
+/* left */
+.top-bar .left-area .home-link{display:flex; flex:1; align-items:center;}
+.top-bar .left-area .home-link .ico{width:auto; height:1.8rem; margin-right:.5rem;}
+.top-bar .left-area .shortcut-list{display:flex; width:fit-content;}
+.top-bar .left-area .shortcut-item:first-child{margin-right:2rem;}
+.top-bar .left-area .shortcut-item a{display:flex; align-items:center;}
+.top-bar .left-area .shortcut-item .ico{width:auto; height:1.8rem; margin-right:.5rem;}
+
+/* center */
+.top-bar .center-area{position:relative; box-sizing:border-box; min-width:calc(50rem - 2px); height:6rem; padding:0 5%; align-content:center; border-left:1px solid #d9d9d9; border-right:1px solid #d9d9d9; background:#344f7a; font-size:2.4rem; text-align:center; color:#fff; cursor:pointer;}
+.top-bar .center-area a{display:inline-flex; align-items:center; color:#fff;}
+.top-bar .center-area .tit{margin:0; letter-spacing:-0.5px;}
+.top-bar .center-area .logo{width:auto; height:2.8rem; margin-left:1rem;}
+
+/* right */
+.top-bar .right-area .member-area{width:fit-content;}
+.top-bar .right-area .member-area a{display:inline-block;}
+.top-bar .right-area .member-area .line{display:inline-block; padding:0 1.5rem;}
+.top-bar .right-area .global-area{position:relative; display:flex; align-items:center; height:100%; margin:0 3rem 0 1.8rem; font-size:1.4rem; font-weight:600; cursor:pointer;}
+.top-bar .right-area .global-area .ico{width:1.6rem; height:1.6rem; margin-right:1rem; fill:none; stroke:#222; stroke-width:1.4;}
+.top-bar .right-area .global-area .arrow{margin-left:.5rem;}
+.top-bar .right-area .global-list{display:none; position:absolute; top:6rem; left:50%; z-index:999; width:16rem; padding:1rem; border-radius:1rem; background:#816a56; font-size:1.6rem; font-weight:400; color:#fff; transform:translateX(-50%);}
+.top-bar .right-area .global-list::after{content:"▲"; position:absolute; top:-1.5rem; left:50%; color:#816a56; transform:translateX(-50%);}
+.top-bar .right-area .global-area:hover .global-list{display:block;}
+.top-bar .right-area .global-item{padding:.5rem; border-bottom:1px solid #fff; text-align:left;}
+.top-bar .right-area .global-item a{color:#fff; white-space:nowrap;}
+.top-bar .right-area .global-item .flag{display:inline; width:1.6rem; margin-right:1.5rem; vertical-align:top;}
+
+@media screen and (max-width:1023px){
+	.top-bar{display:block; min-width:0;}
+	.top-bar .left-area,
+	.top-bar .right-area{display:none;}
+	.top-bar .center-area{border:0;}
+}
+
+
+/* ==========================================================================
+   Mobile / Tablet Header (1023px 이하)
+   구성 : 상단 바로가기(4rem) / 블루 메뉴 버튼(6rem) / 슬라이드 배너(6rem+4px)
+   ========================================================================== */
+.top-bar-mo,
+.menu-area,
+.sub-menu-area{display:none;}
+
+@media screen and (max-width:1023px){
+	.top-bar{display:none;}
+
+	.top-bar-mo{display:flex; flex-direction:column; position:fixed; top:0; left:0; z-index:90; width:100%; background:#fff; transition:all .3s;}
+	.top-bar-mo .left-area{z-index:90; display:flex; align-items:center; justify-content:space-between; box-sizing:border-box; width:100%; height:4rem; padding:0 1.6rem; background:#fff; font-size:1.6rem;}
+	.top-bar-mo .left-area a{display:inline-flex; align-items:center; width:fit-content; color:#222; text-align:left; text-decoration:none; letter-spacing:-0.5px;}
+	.top-bar-mo .left-area a span{display:inline-block; font-size:1.4rem;}
+	.top-bar-mo .left-area .home-link{flex:1;}
+	.top-bar-mo .left-area .home-link .ico{width:auto; height:1.5rem; margin-right:.5rem;}
+	.top-bar-mo .left-area .shortcut-list{display:flex; width:fit-content;}
+	.top-bar-mo .left-area .shortcut-item:first-child{margin-right:2rem;}
+	.top-bar-mo .left-area .shortcut-item .ico{width:auto; height:1.5rem; margin-right:.5rem;}
+
+	.top-bar-mo .menu-btn{position:relative; z-index:90; box-sizing:border-box; width:100%; height:6rem; margin:0; padding:0 5%; border:none; border-radius:0; outline:none; background:#344f7a; font-size:1.9rem; letter-spacing:-0.09rem; text-align:center; color:#fff; cursor:pointer;}
+	.top-bar-mo .menu-btn p{display:inline-block; margin:0; vertical-align:middle;}
+	.top-bar-mo .menu-btn::after{content:""; position:absolute; top:50%; right:0; display:block; width:6rem; height:6rem; transition:top .3s; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='14' viewBox='0 0 18 14'%3E%3Cpath d='M0 1h18M0 7h18M0 13h18' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") no-repeat center center; transform:translateY(-50%);}
+	.top-bar-mo .menu-btn.on::after{content:"▲"; top:-0.7rem; right:1.4rem; display:flex; align-items:center; justify-content:center; width:40px; height:70%; background:#344f7a; font-size:2rem; color:#fff;}
+
+	.header-banner{position:relative; z-index:50; width:100%; height:calc(6rem + 4px); background:#fff; box-shadow:0 1px 10px rgba(0,0,0,.1);}
+	.header-banner .swiper-wrapper{height:6rem;}
+	.header-banner .swiper-slide{z-index:1; display:flex; align-items:center; justify-content:center; box-sizing:border-box; padding:0 6rem; background:#fff; font-size:1.8rem; line-height:1.3; letter-spacing:-0.35px; text-align:center;}
+	.header-banner .swiper-slide a{margin:0; overflow:hidden; color:#000; text-decoration:none; text-overflow:ellipsis;}
+	.header-banner .swiper-slide a span{font-weight:600; text-decoration:underline; text-underline-position:under;}
+	.header-banner .progress-bar{position:absolute; bottom:0; left:0; z-index:1; width:0; height:4px; background:#000; transition:width 3s linear;}
+	.header-banner .banner-close{position:absolute; right:0; z-index:2; display:flex; align-items:center; justify-content:center; min-width:6rem; min-height:6rem; padding:0; border:none; background:#fff; font-size:20px; color:#333; cursor:pointer;}
+	.header-banner.closed{display:none;}
+
+	/* 서브 탭메뉴 : 배너 아래 [대메뉴 타이틀 + 가로 스크롤 pill 탭]. 아래로 스크롤하면 .none 으로 접히고(max-height 0) 위로 올리면 다시 펼침 */
+	.sub-menu-area{display:block; max-height:15.1rem; overflow:hidden; background:#fff; transition:max-height .3s;}
+	.sub-menu-area.none{max-height:0;}
+	.sub-menu-area .big-menu{margin:2rem 0; font-family:var(--font-family-serif); font-size:3.4rem; font-weight:700; line-height:4.9rem; letter-spacing:-0.75px; color:#222; text-align:center;}
+	.sub-menu-area .sub-menu-list{display:flex; gap:.8rem; margin:0; padding:0 2rem 1.8rem; overflow-x:auto;}
+	.sub-menu-area .sub-menu-list::-webkit-scrollbar{height:.5rem;}
+	.sub-menu-area .sub-menu-list::-webkit-scrollbar-thumb{border-radius:.5rem; background:rgba(34,42,102,.8);}
+	.sub-menu-area .sub-menu-list::-webkit-scrollbar-track{background:rgba(255,255,255,.8);}
+	.sub-menu-area .sub-menu-item{flex:none; border:1px solid #eee6d9; border-radius:5rem; background:#fff; font-size:1.8rem; letter-spacing:-0.25px; color:#222;}
+	.sub-menu-area .sub-menu-item a{display:block; padding:.8rem 2rem; font-size:1.8rem; line-height:2.1rem; letter-spacing:-0.25px; color:#222; text-align:center; text-decoration:none; white-space:nowrap;}
+	.sub-menu-area .sub-menu-item.select{border-color:#222; background:#222;}
+	.sub-menu-area .sub-menu-item.select a{color:#fff;}
+
+	/* 전체 메뉴 : 원본과 동일하게 6rem 아래에서 시작.
+	   열릴 때 .menu-list 는 height 0 → calc(100vh - 6rem), opacity 0 → 1 이 즉시 적용되고, top -20px → 0 만 0.3s 로 부드럽게 내려옴 (transition:top .3s) */
+	.menu-area{position:fixed; top:6rem; left:50%; z-index:110; display:block; width:100%; height:100%; border-right:1px solid #fff; pointer-events:none; transform:translateX(-50%); transition:all .3s;}
+	.menu-area.on{pointer-events:all;}
+	.menu-area .menu-bg{position:absolute; top:0; left:0; display:none; width:100vw; height:100vh; background:#fff; opacity:.8; transition:all .2s;}
+	.menu-area .menu-bg.on{display:block;}
+	.menu-area .menu-list{position:relative; top:-20px; height:0; margin:0; padding:0; background:rgba(255,255,255,.9); opacity:0; text-align:left; transition:top .3s;}
+	.menu-area.on .menu-list{display:grid; grid-template-rows:max-content 1fr; top:0; height:calc(100vh - 6rem); opacity:1;}
+	.menu-area .menu-top{display:flex; align-items:center; justify-content:space-between; width:100%; padding:2.4rem 5% 5.6rem; line-height:normal;}
+	.menu-area .menu-top .home{display:block; width:21px; height:21px; max-width:21px;}
+	.menu-area .menu-top .home::after{content:""; display:block; width:21px; height:21px; background:#000; -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 12h3v9h5v-6h4v6h5v-9h3z'/%3E%3C/svg%3E") no-repeat center center; -webkit-mask-size:contain; mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 12h3v9h5v-6h4v6h5v-9h3z'/%3E%3C/svg%3E") no-repeat center center; mask-size:contain;}
+	.menu-area .login-area{font-size:2.2rem; text-align:right;}
+	.menu-area .login-area a{padding:0 1rem; border-right:1px solid #d9d9d9; color:#222; text-decoration:none;}
+	.menu-area .login-area a:first-child{padding-left:0;}
+	.menu-area .login-area a:last-child{border:none;}
+
+	.menu-area .menu-body{min-height:0; overflow-y:auto;}
+	.menu-area .depth01-list{display:flex; flex-direction:column; gap:5.4vh; padding-bottom:18rem;}
+	.menu-area .depth01-item{position:relative;}
+	.menu-area .big-menu{display:block; margin:0; font-family:var(--font-family-serif); font-size:clamp(3.15rem,3.3vh,27px); font-weight:800; line-height:1; letter-spacing:-0.5px; text-align:center; cursor:pointer;}
+	.menu-area .depth02-list{display:none; padding-top:2.8rem; text-align:center;}
+	.menu-area .depth01-item.select .depth02-list{display:block;}
+	.menu-area .depth02-list > div{display:block;}
+	.menu-area .depth02-list a{display:inline-block; font-size:clamp(1.9rem,2.15vh,14.5px); line-height:1.9; letter-spacing:-0.16rem; color:#000; text-decoration:none;}
+	.menu-area .depth02-list a::after{content:"/"; padding:0 .6rem; font-size:clamp(1.9rem,2.1vh,19px); font-weight:400; color:#000;}
+	.menu-area .depth02-list a:last-child::after{display:none;}
+	.menu-area .depth02-list a.ulthera{font-weight:500; color:#e69a20;}
+	.menu-area .depth02-list a.thermage{font-weight:500; color:#a74398;}
+}
+
+/* 로고 이미지 자리표시자 (회색 영역) : 원본 이미지 비율 유지, 높이는 기존 .ico / .logo 규칙 사용 */
+.logo-ph{display:inline-flex; flex:none; align-items:center; justify-content:center; box-sizing:border-box; background:#ccc; color:#555; font-size:.9rem; font-weight:700; line-height:1; white-space:nowrap;}
+.logo-ph-home{aspect-ratio:171/61;}
+.logo-ph-header{aspect-ratio:109/39;}

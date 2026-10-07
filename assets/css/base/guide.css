@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+.guide-section{
+	padding:4rem 0;
+	border-top:1px solid var(--border-color);
+}

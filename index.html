@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>픽미 피부과 | 메인</title>
+	<meta name="description" content="픽미 피부과, 픽미 홀딩스">
+	<link rel="stylesheet" href="./assets/style.css">
+	<script src="./assets/js/jquery-3.7.1.js"></script>
+	<script src="./assets/js/plugin/swiper/swiper.min.js"></script>
+	<script src="./assets/js/plugin/gsap/gsap.min.js"></script>
+	<script src="./assets/js/plugin/gsap/ScrollTrigger.min.js"></script>
+</head>
+<body>
+	<!-- SVG sprite -->
+	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+		<symbol id="ico-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></symbol>
+		<symbol id="ico-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+		<symbol id="ico-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.4l4.2 2.5-.8 1.3L11 13V7z"/></symbol>
+		<symbol id="ico-chat" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7L5.600 21l4-2.300c.8.2 1.600.3 2.400.3 5.500 0 10-3.600 10-8S17.500 3 12 3z"/></symbol>
+		<symbol id="ico-blog" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6l-4 3.500V18H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></symbol>
+		<symbol id="ico-insta" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zM17.300 5.500a1.200 1.200 0 1 1 0 2.400 1.200 1.200 0 0 1 0-2.400z"/></symbol>
+		<symbol id="ico-facebook" viewBox="0 0 24 24"><path d="M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2.200C16.700 2.200 15.700 2 14.500 2 12 2 10.200 3.500 10.200 6.200V8H7v3.600h3.200V22H14V11.600h2.800L17.300 8z"/></symbol>
+		<symbol id="ico-youtube" viewBox="0 0 24 24"><path d="M22 8.200a3 3 0 0 0-2.100-2.100C18 5.600 12 5.600 12 5.600s-6 0-7.900.5A3 3 0 0 0 2 8.200 31 31 0 0 0 1.600 12 31 31 0 0 0 2 15.800a3 3 0 0 0 2.100 2.100c1.900.5 7.900.5 7.900.5s6 0 7.900-.5a3 3 0 0 0 2.100-2.100c.3-1.300.4-2.500.4-3.800s-.1-2.500-.4-3.800zM10 15V9l5.200 3z"/></symbol>
+		<symbol id="ico-cafe" viewBox="0 0 24 24"><path d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zm14 1h2a3 3 0 0 1 0 6h-2v-2h2a1 1 0 0 0 0-2h-2zM6 3h2v3H6zm4 0h2v3h-2z"/></symbol>
+		<symbol id="ico-leaf" viewBox="0 0 24 24"><path d="M5 20C5 11 9 5 19 4c0 10-5 15-12 15l-2 1z"/></symbol>
+		<symbol id="ico-logo" viewBox="0 0 26 18"><path d="M0 1h5l3 9 3-9h5l-6 14H6z"/></symbol>
+		<symbol id="ico-q-call" viewBox="0 0 24 24"><path d="M6.200 3.500h2.800l1.400 3.800-1.800 1.500a11.500 11.500 0 0 0 5.600 5.600l1.500-1.800 3.800 1.400v2.800a2 2 0 0 1-2 2C9.500 18.600 4.200 13.300 4.200 5.500a2 2 0 0 1 2-2zM14 3.500a6.500 6.500 0 0 1 6.500 6.500M14 7a3.500 3.500 0 0 1 3.500 3.500"/></symbol>
+		<symbol id="ico-q-chat" viewBox="0 0 24 24"><path d="M12 3.500c-4.700 0-8.500 3.200-8.500 7.300 0 2.400 1.300 4.500 3.400 5.800L6 20.500l4-2.300c.6.100 1.300.2 2 .2 4.700 0 8.500-3.200 8.500-7.300S16.700 3.500 12 3.500z"/><circle cx="8.500" cy="11" r=".6"/><circle cx="12" cy="11" r=".6"/><circle cx="15.500" cy="11" r=".6"/></symbol>
+		<symbol id="ico-q-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.200 3 3.200 15 0 18M12 3c-3.200 3-3.200 15 0 18"/></symbol>
+		<symbol id="ico-q-scan" viewBox="0 0 24 24"><path d="M3.500 8.500v-3a2 2 0 0 1 2-2h3M15.500 3.500h3a2 2 0 0 1 2 2v3M20.500 15.500v3a2 2 0 0 1-2 2h-3M8.500 20.500h-3a2 2 0 0 1-2-2v-3M7.500 12h9"/></symbol>
+		<symbol id="ico-chat-b" viewBox="2 3 20 18"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7L5.600 21l4-2.300c.8.2 1.600.3 2.400.3 5.500 0 10-3.600 10-8S17.500 3 12 3z"/></symbol>
+		<symbol id="ico-blog-b" viewBox="2 4 20 17.5"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6l-4 3.500V18H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></symbol>
+		<symbol id="ico-insta-b" viewBox="2 2 20 20"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zM17.300 5.500a1.200 1.200 0 1 1 0 2.400 1.200 1.200 0 0 1 0-2.400z"/></symbol>
+		<symbol id="ico-facebook-b" viewBox="7 2 10.3 20"><path d="M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2.200C16.700 2.200 15.700 2 14.500 2 12 2 10.200 3.500 10.200 6.200V8H7v3.600h3.200V22H14V11.600h2.800L17.300 8z"/></symbol>
+		<symbol id="ico-youtube-b" viewBox="1.6 5.6 20.8 12.8"><path d="M22 8.200a3 3 0 0 0-2.100-2.100C18 5.600 12 5.600 12 5.600s-6 0-7.900.5A3 3 0 0 0 2 8.200 31 31 0 0 0 1.600 12 31 31 0 0 0 2 15.800a3 3 0 0 0 2.100 2.100c1.900.5 7.900.5 7.900.5s6 0 7.900-.5a3 3 0 0 0 2.100-2.100c.3-1.300.4-2.500.4-3.800s-.1-2.500-.4-3.800zM10 15V9l5.200 3z"/></symbol>
+		<symbol id="ico-cafe-b" viewBox="3 3 19 16"><path d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zm14 1h2a3 3 0 0 1 0 6h-2v-2h2a1 1 0 0 0 0-2h-2zM6 3h2v3H6zm4 0h2v3h-2z"/></symbol>
+	</svg>
+
+	<div id="skipMenu" class="skip-menu"><a href="#container" class="skip-link">본문 바로가기</a></div>
+
+	<div id="wrapper" class="wrapper">
+		<header id="header" class="header">
+			<div class="top-bar" id="TOP_MENU_AREA">
+				<div class="left-area">
+					<a href="index.html" class="home-link"><span class="ico logo-ph logo-ph-home" role="img" aria-label="픽미 피부과 로고">로고 영역</span><span>공식 웹사이트</span></a>
+					<ul class="shortcut-list">
+						<li class="shortcut-item ulthera"><a href="javascript:void(0);"><img class="ico" src="./assets/images/layout/ico-ulthera.png" data-fallback="./assets/images/layout/ico-ulthera.svg" alt=""><span>울쎄라 바로가기</span></a></li>
+						<li class="shortcut-item thermage"><a href="javascript:void(0);"><img class="ico" src="./assets/images/layout/ico-thermage.png" data-fallback="./assets/images/layout/ico-thermage.svg" alt=""><span>써마지 바로가기</span></a></li>
+					</ul>
+				</div>
+				<div class="center-area">
+					<a href="index.html"><p class="tit">기대가 현실이 되는</p><span class="logo logo-ph logo-ph-header" role="img" aria-label="픽미 피부과 로고">로고 영역</span></a>
+				</div>
+				<div class="right-area">
+					<div class="member-area">
+						<a href="javascript:void(0);">로그인</a><span class="line">|</span><a href="javascript:void(0);">마이페이지</a>
+					</div>
+					<div class="global-area">
+						<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>PICKME GLOBAL &nbsp;<span class="arrow">▼</span>
+						<ul class="global-list">
+							<li class="global-item"><a href="javascript:void(0);"><img class="flag" src="./assets/images/layout/flag-en.png" data-fallback="./assets/images/layout/flag-en.svg" alt="">ENGLISH</a></li>
+							<li class="global-item"><a href="javascript:void(0);"><img class="flag" src="./assets/images/layout/flag-cn.png" data-fallback="./assets/images/layout/flag-cn.svg" alt="">CHINA(中国)</a></li>
+							<li class="global-item"><a href="javascript:void(0);"><img class="flag" src="./assets/images/layout/flag-jp.png" data-fallback="./assets/images/layout/flag-jp.svg" alt="">JAPAN(にほん)</a></li>
+							<li class="global-item"><a href="javascript:void(0);"><img class="flag" src="./assets/images/layout/flag-th.png" data-fallback="./assets/images/layout/flag-th.svg" alt="">THAILAND</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- 모바일/태블릿 헤더 (1023px 이하) -->
+			<div class="top-bar-mo" id="TOP_MENU_MO">
+				<div class="left-area">
+					<a href="index.html" class="home-link"><span class="ico logo-ph logo-ph-home" role="img" aria-label="픽미 피부과 로고">로고 영역</span><span>공식 웹사이트</span></a>
+					<ul class="shortcut-list">
+						<li class="shortcut-item ulthera"><a href="javascript:void(0);"><img class="ico" src="./assets/images/layout/ico-ulthera.png" data-fallback="./assets/images/layout/ico-ulthera.svg" alt=""><span>울쎄라 바로가기</span></a></li>
+						<li class="shortcut-item thermage"><a href="javascript:void(0);"><img class="ico" src="./assets/images/layout/ico-thermage.png" data-fallback="./assets/images/layout/ico-thermage.svg" alt=""><span>써마지 바로가기</span></a></li>
+					</ul>
+				</div>
+				<button type="button" class="menu-btn" id="HEADER_MENU_BTN" aria-label="전체 메뉴 열기"><p>울쎄라 · 써마지 특화 진료 정품 사용 인증 의료기관</p></button>
+				<div class="swiper-container header-banner" id="SWIPER_MO_HEADER_BANNER">
+					<button type="button" class="banner-close" aria-label="배너 닫기">×</button>
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="javascript:void(0);">한 명도 빠짐없이, 써마지 마스터<br><span>전 의료진 써마지 TTT 마스터 수료 현장 바로가기</span></a></div>
+						<div class="swiper-slide"><a href="javascript:void(0);">울쎄라 본사 멀츠 CEO 밥 래티건<br><span>최초 공식 방문 현장 바로가기</span></a></div>
+						<div class="swiper-slide"><a href="javascript:void(0);">울쎄라 월 30만샷 / 써마지 월 20만샷 돌파!<br><span>이달의 이벤트 바로가기</span></a></div>
+						<div class="swiper-slide"><a href="javascript:void(0);">울쎄라 정품팁사용량 부분<br><span>5년 연속 멀츠 골든 어워즈 선정 현장 바로가기</span></a></div>
+					</div>
+					<div class="progress-bar"></div>
+				</div>
+			</div>
+
+			<!-- 모바일/태블릿 전체 메뉴 -->
+			<div class="menu-area" id="HEADER_MENU_AREA">
+				<div class="menu-bg" id="SUB_MENU_BG"></div>
+				<ol class="menu-list" id="HEADER_MENU">
+					<li class="menu-top">
+						<a href="index.html" class="home"><span class="blind">홈</span></a>
+						<div class="login-area"><a href="javascript:void(0);">로그인</a><a href="javascript:void(0);">JOIN</a></div>
+					</li>
+					<li class="menu-body">
+						<ul class="depth01-list">
+							<li class="depth01-item">
+								<p class="big-menu">PICKME STORY</p>
+								<div class="depth02-list">
+									<div><a href="doctor_story_pc.html">대표원장 스토리</a><a href="javascript:void(0);">병원소개</a><a href="javascript:void(0);">의료진소개</a></div>
+									<div><a href="javascript:void(0);">울써마지 연구노트</a><a href="javascript:void(0);">공지사항</a><a href="javascript:void(0);">진료안내·오시는길</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">METASCAN-AI</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);">메타스캔 AI</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">ULTHERA</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);" class="ulthera">AI 울쎄라</a><a href="javascript:void(0);">울써마지</a><a href="javascript:void(0);">커버핏울쎄라</a></div>
+									<div><a href="javascript:void(0);">원포인트울쎄라</a><a href="javascript:void(0);">퍼스트울쎄라</a><a href="javascript:void(0);">맨즈울쎄라</a><a href="javascript:void(0);">비대칭울쎄라</a></div>
+									<div><a href="javascript:void(0);">아이울쎄라</a><a href="javascript:void(0);">심부볼울쎄라</a><a href="javascript:void(0);">목주름울쎄라</a><a href="javascript:void(0);">바디울쎄라</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">THERMAGE</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);" class="thermage">AI써마지</a><a href="javascript:void(0);">히트업 써마지</a><a href="javascript:void(0);">울써마지</a><a href="javascript:void(0);">아이써마지</a></div>
+									<div><a href="javascript:void(0);">목주름써마지</a><a href="javascript:void(0);">바디써마지</a><a href="javascript:void(0);">핸드써마지</a><a href="javascript:void(0);">맨즈써마지</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">LIFTING BOOSTER</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);">온다부스터</a><a href="javascript:void(0);">티타늄부스터</a><a href="javascript:void(0);">인모드부스터</a><a href="javascript:void(0);">올리지오부스터</a></div>
+									<div><a href="javascript:void(0);">엑실리스부스터</a><a href="javascript:void(0);">산소치료</a></div>
+									<div><a href="javascript:void(0);">팔레트실리프팅</a><a href="javascript:void(0);">이중턱 히든팻 지방흡입</a></div>
+									<div><a href="javascript:void(0);">커스텀브라이트닝</a><a href="javascript:void(0);">커스텀케어</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">SKIN BOOSTER</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);">AI 스킨부스터</a></div>
+									<div><a href="javascript:void(0);">시그니처 스킨부스터</a><a href="javascript:void(0);">베스트 스킨부스터</a></div>
+									<div><a href="javascript:void(0);">콜라겐 리프팅필러</a><a href="javascript:void(0);">리프팅필러</a></div>
+									<div><a href="javascript:void(0);">귀필러</a><a href="javascript:void(0);">바디필러</a></div>
+									<div><a href="javascript:void(0);">옥시젠파워스템셀</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">EVENT / VIP CLUB</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);">이달의 이벤트</a></div>
+									<div><a href="javascript:void(0);">예약금패스 혜택</a><a href="javascript:void(0);">보상시술 혜택</a></div>
+									<div><a href="javascript:void(0);">CLUB i-MJ</a><a href="javascript:void(0);">CLUB i-WEDDING</a></div>
+									<div><a href="javascript:void(0);">울써메이트 카페</a></div>
+								</div>
+							</li>
+							<li class="depth01-item">
+								<p class="big-menu">COMMUNITY</p>
+								<div class="depth02-list">
+									<div><a href="javascript:void(0);">YOUTUBE</a><a href="javascript:void(0);">BLOG</a></div>
+									<div><a href="javascript:void(0);">전후사진</a><a href="javascript:void(0);">시술후기</a><a href="javascript:void(0);">피부유형테스트</a></div>
+									<div><a href="javascript:void(0);">온라인상담</a><a href="javascript:void(0);">온라인예약</a></div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+
+			<!-- 모바일/태블릿 하단 퀵바 -->
+			<div class="quick-bar" id="QUICK_MENU_BOT">
+				<a href="javascript:void(0);"><svg class="ico" aria-hidden="true"><use href="#ico-q-call"/></svg><p>전화상담</p></a>
+				<a href="javascript:void(0);"><svg class="ico" aria-hidden="true"><use href="#ico-q-chat"/></svg><p>카톡상담</p></a>
+				<a href="javascript:void(0);" id="GLOBAL_ROTATE_LOGO"><svg class="ico" aria-hidden="true"><use href="#ico-q-globe"/></svg><p>글로벌</p></a>
+				<a href="javascript:void(0);" id="QUICK_BAR_SCAN"><svg class="ico" aria-hidden="true"><use href="#ico-q-scan"/></svg><p>메타스캔AI</p></a>
+			</div>
+
+			<!-- 하단 플로팅 상담 버튼 -->
+			<div class="quick-menu" id="BOUNCE_BOX">
+				<a href="javascript:void(0);" class="quick-menu-item item-scan"><p class="txt">메타스캔</p><svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></a>
+				<a href="javascript:void(0);" class="quick-menu-item item-kakao"><p class="txt">카톡상담</p></a>
+				<button type="button" class="quick-menu-item item-counsel" id="COUNSEL_GO"><p class="txt">빠른상담</p></button>
+			</div>
+
+			<div class="top-btn" id="TOP_BTN"><span class="btn-top">TOP</span></div>
+		</header>
+
+		<main id="container" class="container-area">
+			<div class="layout-area">
+				<!-- 좌측 패널 -->
+				<div class="layout-left">
+					<div class="side-panel side-panel-left">
+						<div class="banner-area">
+							<div class="banner-box">
+								<span class="banner-logo logo-ph logo-ph-home" role="img" aria-label="픽미 피부과 로고">로고 영역</span>
+								<h1 class="tit-sub">오직 울쎄라/써마지만 매진하는<br>리프팅 중점 진료 픽미 입니다.</h1>
+								<h5 class="tit-line">울쎄라 &middot; 써마지 특화 진료</h5>
+								<h3 class="txt-box"><strong>ULTHERA</strong><br>울쎄라 월평균 30만샷(800명 이상) 시술 돌파<br>ABM · KOL 학술 리더 의료진</h3>
+								<h3 class="txt-box"><strong>THERMAGE</strong><br>써마지 월평균 20만샷(400명 이상) 시술 돌파<br>전 의료진 TTT Master 수료 · MTL 의료진</h3>
+							</div>
+						</div>
+						<div class="info-area">
+							<h2 class="info-tit"><svg class="ico" aria-hidden="true"><use href="#ico-tel"/></svg><span>전화상담</span><span class="light tel">02-000-0000</span></h2>
+							<h2 class="info-tit"><svg class="ico" aria-hidden="true"><use href="#ico-pin"/></svg><span>오시는길</span><span class="light">서울특별시 용산구 원효로35길 47, 201호</span></h2>
+							<ul class="sns-list">
+								<li class="sns-item"><a href="javascript:void(0);"><span class="blind">카카오톡</span><svg class="ico" aria-hidden="true"><use href="#ico-chat-b"/></svg></a></li>
+								<li class="sns-item"><a href="javascript:void(0);"><span class="blind">블로그</span><svg class="ico" aria-hidden="true"><use href="#ico-blog-b"/></svg></a></li>
+								<li class="sns-item"><a href="javascript:void(0);"><span class="blind">인스타그램</span><svg class="ico" aria-hidden="true"><use href="#ico-insta-b"/></svg></a></li>
+								<li class="sns-item"><a href="javascript:void(0);"><span class="blind">페이스북</span><svg class="ico" aria-hidden="true"><use href="#ico-facebook-b"/></svg></a></li>
+								<li class="sns-item"><a href="javascript:void(0);"><span class="blind">유튜브</span><svg class="ico" aria-hidden="true"><use href="#ico-youtube-b"/></svg></a></li>
+								<li class="sns-item"><a href="javascript:void(0);"><span class="blind">카페</span><svg class="ico" aria-hidden="true"><use href="#ico-cafe-b"/></svg></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- 중앙 콘텐츠 -->
+				<div class="layout-center">
+					<section class="sect sect-main-visual">
+						<div class="video-area" role="img" aria-label="메인 비주얼 영상 영역"></div>
+						<div class="metascan-go"><a href="javascript:void(0);"><span class="blind">메타스캔 AI 바로가기</span></a></div>
+						<div class="dim-area"></div>
+					</section>
+
+					<div class="main-view">
+						<section class="sect sect-main-signature">
+							<div class="signature-item" id="BOX_1">
+								<h2 class="tit-serif">PICKME<br>PRO Ulthera<br>PROTOCOL</h2>
+								<div class="img-area"><img src="./assets/images/main/signature-01.png" data-fallback="./assets/images/main/signature-01.svg" alt="울쎄라 프로토콜"></div>
+								<div class="txt-area">
+									<p class="tit-copy">MERZ 울쎄라피프라임 <br>ABM자문의원 및 KOL핵심임상전문가 활동</p>
+									<p class="txt-copy">울쎄라 정품팁 구매량 1년 1,300개 돌파!</p>
+									<a href="javascript:void(0);" class="btn-view">View Ulthera Details <svg class="arrow" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 1l8.500 8L1 17M11.500 1l8.500 8-8.500 8"/></svg></a>
+								</div>
+							</div>
+							<div class="signature-item" id="BOX_2">
+								<h2 class="tit-serif">PICKME<br>PRO Thermage<br>PROTOCOL</h2>
+								<div class="img-area"><img src="./assets/images/main/signature-02.png" data-fallback="./assets/images/main/signature-02.svg" alt="써마지 프로토콜"></div>
+								<div class="txt-area">
+									<p class="tit-copy">월평균 360CASE 시술<br>팁 구매액 2억5천 이상</p>
+									<p class="txt-copy">1년간 써마지 2,376,000샷 시술 돌파!</p>
+									<a href="javascript:void(0);" class="btn-view">View Thermage Details <svg class="arrow" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 1l8.500 8L1 17M11.500 1l8.500 8-8.500 8"/></svg></a>
+								</div>
+							</div>
+						</section>
+
+						<section class="sect sect-main-event">
+							<h2 class="tit-serif">RECOMMEND<br>EVENT</h2>
+							<div class="event-area">
+								<ul class="event-list">
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-01.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 1"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-02.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 2"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-03.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 3"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-04.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 4"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-05.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 5"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-06.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 6"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-07.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 7"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-08.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 8"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-09.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 9"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-10.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 10"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-11.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 11"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-12.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 12"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-13.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 13"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-14.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 14"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-15.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 15"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-16.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 16"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-17.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 17"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-18.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 18"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-19.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 19"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-20.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 20"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-21.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 21"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-22.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 22"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-23.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 23"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-24.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 24"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-25.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 25"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-26.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 26"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-27.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 27"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-28.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 28"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-29.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 29"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-30.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 30"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-31.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 31"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-32.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 32"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-33.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 33"></a></li>
+									<li class="event-item"><a href="javascript:void(0);"><img src="./assets/images/main/event-34.jpg" data-fallback="./assets/images/main/event-placeholder.svg" alt="이벤트 34"></a></li>
+								</ul>
+							</div>
+						</section>
+
+						<section class="sect sect-main-review">
+							<h2 class="tit-serif">BEST<br>REVIEW</h2>
+							<div class="swiper-container review-slider">
+								<ul class="swiper-wrapper review-list">
+									<li class="swiper-slide review-item">
+										<div class="review-cover"><div class="cover-inner"><a href="javascript:void(0);" class="link">REVIEW &gt;</a><p class="btn-zzim">찜<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.400-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 10c0 5.600-8 11-8 11z"/></svg></p></div></div>
+										<img src="./assets/images/main/review-01.jpg" data-fallback="./assets/images/main/review-placeholder.svg" alt="베스트 리뷰 1">
+									</li>
+									<li class="swiper-slide review-item">
+										<div class="review-cover"><div class="cover-inner"><a href="javascript:void(0);" class="link">REVIEW &gt;</a><p class="btn-zzim">찜<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.400-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 10c0 5.600-8 11-8 11z"/></svg></p></div></div>
+										<img src="./assets/images/main/review-02.jpg" data-fallback="./assets/images/main/review-placeholder.svg" alt="베스트 리뷰 2">
+									</li>
+									<li class="swiper-slide review-item">
+										<div class="review-cover"><div class="cover-inner"><a href="javascript:void(0);" class="link">REVIEW &gt;</a><p class="btn-zzim">찜<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.400-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 10c0 5.600-8 11-8 11z"/></svg></p></div></div>
+										<img src="./assets/images/main/review-03.jpg" data-fallback="./assets/images/main/review-placeholder.svg" alt="베스트 리뷰 3">
+									</li>
+									<li class="swiper-slide review-item">
+										<div class="review-cover"><div class="cover-inner"><a href="javascript:void(0);" class="link">REVIEW &gt;</a><p class="btn-zzim">찜<svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.400-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 10c0 5.600-8 11-8 11z"/></svg></p></div></div>
+										<img src="./assets/images/main/review-04.jpg" data-fallback="./assets/images/main/review-placeholder.svg" alt="베스트 리뷰 4">
+									</li>
+								</ul>
+							</div>
+						</section>
+
+						<footer id="footer" class="footer">
+							<div class="footer-area">
+								<div class="box border align-c"><span class="footer-logo" aria-label="PICKME">PICKME</span></div>
+
+								<div class="footer-info">
+									<div class="box">
+										<h2 class="info-tit bold box-tel"><svg class="ico" aria-hidden="true"><use href="#ico-tel"/></svg>전화상담<a class="color-y tel" href="javascript:void(0);">02-000-0000</a></h2>
+										<h2 class="info-tit bold box-kakao"><svg class="ico" aria-hidden="true"><use href="#ico-chat"/></svg>카톡 상담<p class="color-g">카톡 아이디 검색에서 다음을 검색하세요<br><span class="color-y">@픽미 </span></p></h2>
+										<h2 class="info-tit bold box-map"><svg class="ico" aria-hidden="true"><use href="#ico-pin"/></svg>서울특별시 용산구 원효로35길 47, 201호</h2>
+										<img class="footer-bg" src="./assets/images/main/footer-bg.jpg" data-fallback="./assets/images/main/footer-bg.svg" alt="">
+									</div>
+
+									<div class="box border">
+										<h2 class="info-tit bold"><svg class="ico" aria-hidden="true"><use href="#ico-clock"/></svg>진료시간</h2>
+										<p class="day-time color-g">월 - 목<span>AM 10:00 - PM 07:00</span></p>
+										<p class="day-time color-g">금요일 <span>AM 10:00 – PM 09:00</span></p>
+										<p class="day-time color-g">토요일 <span>AM 10:00 – PM 04:00</span></p>
+										<p class="day-time mt15 color-g">공휴일/일요일 휴진</p>
+										<p class="day-time mt10 color-g">단, 매월 셋째 주 일요일은 예외적으로<br>AM 10:00-PM 04:00 진료 합니다.</p>
+									</div>
+
+									<ul class="footer-sns-list">
+										<li class="footer-sns-item"><a href="javascript:void(0);"><span class="blind">유튜브</span><svg class="ico" aria-hidden="true"><use href="#ico-youtube-b"/></svg></a></li>
+										<li class="footer-sns-item"><a href="javascript:void(0);"><span class="blind">인스타그램</span><svg class="ico" aria-hidden="true"><use href="#ico-insta-b"/></svg></a></li>
+										<li class="footer-sns-item"><a href="javascript:void(0);"><span class="blind">페이스북</span><svg class="ico" aria-hidden="true"><use href="#ico-facebook-b"/></svg></a></li>
+										<li class="footer-sns-item"><a href="javascript:void(0);"><span class="blind">블로그</span><svg class="ico" aria-hidden="true"><use href="#ico-blog-b"/></svg></a></li>
+										<li class="footer-sns-item"><a href="javascript:void(0);"><span class="blind">카페</span><svg class="ico" aria-hidden="true"><use href="#ico-cafe-b"/></svg></a></li>
+									</ul>
+								</div>
+
+								<div class="footer-bottom">
+									<div class="box">
+										<p class="link-list color-g"><a href="javascript:void(0);">개인정보취급방침</a> &nbsp; <a href="javascript:void(0);">이용약관</a> &nbsp; <a href="javascript:void(0);">비급여수가표</a></p>
+										<p class="color-g">대표자 : 홍봉기 ㅣ 사업자등록번호 : 234-86-04035 ㅣ 상호명 : 픽미(PICKME)피부과의원<br>Tel. 02-000-0000 ㅣ Fax. 02-000-0000 ㅣ E-mail. pickmeholdings@gmail.com</p>
+									</div>
+								</div>
+							</div>
+						</footer>
+					</div>
+				</div>
+
+				<!-- 우측 패널 : 메뉴 블롭 -->
+				<div class="layout-right">
+					<div class="side-panel side-panel-right">
+						<ul class="circle-list">
+							<li class="circle-item" data-no="1">	
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">PICKME STORY</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="doctor_story_pc.html">대표원장스토리</a></span>
+													<span class="item"><a href="javascript:void(0);">병원소개</a></span>
+													<span class="item"><a href="javascript:void(0);">의료진소개</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">울써마지 연구노트</a></span>
+													<span class="item"><a href="javascript:void(0);">공지사항</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">진료안내·오시는길</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="8">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">METASCAN-AI</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);">메타스캔 AI</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="3">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">THERMAGE</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);" class="thermage">AI써마지</a></span>
+													<span class="item"><a href="javascript:void(0);">히트업 써마지</a></span>
+													<span class="item"><a href="javascript:void(0);">울써마지</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">아이써마지</a></span>
+													<span class="item"><a href="javascript:void(0);">목주름써마지</a></span>
+													<span class="item"><a href="javascript:void(0);">바디써마지</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">핸드써마지</a></span>
+													<span class="item"><a href="javascript:void(0);">맨즈써마지</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="2">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">ULTHERA</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);" class="ulthera">AI 울쎄라</a></span>
+													<span class="item"><a href="javascript:void(0);">울써마지</a></span>
+													<span class="item"><a href="javascript:void(0);">커버핏울쎄라</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">원포인트울쎄라</a></span>
+													<span class="item"><a href="javascript:void(0);">퍼스트울쎄라</a></span>
+													<span class="item"><a href="javascript:void(0);">맨즈울쎄라</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">비대칭울쎄라</a></span>
+													<span class="item"><a href="javascript:void(0);">아이울쎄라</a></span>
+													<span class="item"><a href="javascript:void(0);">심부볼울쎄라</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">목주름울쎄라</a></span>
+													<span class="item"><a href="javascript:void(0);">바디울쎄라</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="4">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">LIFTING BOOSTER</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);">온다부스터</a></span>
+													<span class="item"><a href="javascript:void(0);">티타늄부스터</a></span>
+													<span class="item"><a href="javascript:void(0);">인모드부스터</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">올리지오부스터</a></span>
+													<span class="item"><a href="javascript:void(0);">엑실리스부스터</a></span>
+													<span class="item"><a href="javascript:void(0);">산소치료</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">팔레트실리프팅</a></span>
+													<span class="item"><a href="javascript:void(0);">이중턱 히든팻 지방흡입</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">커스텀브라이트닝</a></span>
+													<span class="item"><a href="javascript:void(0);">커스텀케어</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="5">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">SKINBOOSTER</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);">AI 스킨부스터</a></span>
+													<span class="item"><a href="javascript:void(0);">시그니처 스킨부스터</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">베스트 스킨부스터</a></span>
+													<span class="item"><a href="javascript:void(0);">콜라겐 리프팅필러</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">리프팅필러</a></span>
+													<span class="item"><a href="javascript:void(0);">귀필러</a></span>
+													<span class="item"><a href="javascript:void(0);">바디필러</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">옥시젠파워스템셀</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="7">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">EVENT / VIP CLUB</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);">이달의 이벤트</a></span>
+													<span class="item"><a href="javascript:void(0);">예약금패스 혜택</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">보상시술 혜택</a></span>
+													<span class="item"><a href="javascript:void(0);">CLUB i-MJ</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">CLUB i-WEDDING</a></span>
+													<span class="item"><a href="javascript:void(0);">울써메이트 카페</a></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="circle-item" data-no="6">
+								<div class="shape">
+									<span class="blob"></span>
+									<div class="gnb-txt-wrap">
+										<a href="javascript:void(0);" class="gnb-title">COMMUNITY</a>
+										<div class="gnb-sub-wrap">
+											<div class="gnb-sub-list">
+												<div>
+													<span class="item"><a href="javascript:void(0);">YOUTUBE</a></span>
+													<span class="item"><a href="javascript:void(0);">BLOG</a></span>
+													<span class="item"><a href="javascript:void(0);">전후사진</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">시술후기</a></span>
+													<span class="item"><a href="javascript:void(0);">피부유형테스트</a></span>
+												</div>
+												<div>
+													<span class="item"><a href="javascript:void(0);">온라인상담</a></span>
+													<span class="item"><a href="javascript:void(0);">온라인예약</a></span>
+												</div>
+											</div>	
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<!-- 모바일/태블릿 글로벌 언어 선택 (원형 메뉴) -->
+	<div class="global-popup" id="GLOBAL_POPUP">
+		<div class="circle">
+			<a href="javascript:void(0);" class="circle-btn not-ready" style="top:45px; left:180px;"><img src="./assets/images/layout/flag-th.svg" alt=""><p>TH</p></a>
+			<a href="javascript:void(0);" class="circle-btn" style="top:60px; left:94px;"><img src="./assets/images/layout/flag-jp.svg" alt=""><p>にほん</p></a>
+			<a href="javascript:void(0);" class="circle-btn" style="top:135px; left:32px;"><img src="./assets/images/layout/flag-cn.svg" alt=""><p>中国</p></a>
+			<a href="javascript:void(0);" class="circle-btn" style="top:214px; left:30px;"><img src="./assets/images/layout/flag-en.svg" alt=""><p>English</p></a>
+			<button type="button" class="btn-close" id="GLOBAL_POPUP_CLOSE" aria-label="닫기">X</button>
+		</div>
+	</div>
+
+	<!-- 빠른상담 슬라이드 패널 -->
+	<div class="quick-consult" id="QUICK_CONSULT">
+		<h2 class="tit-quick">빠른 상담 신청<button type="button" class="close-quick" id="QUICK_CONSULT_CLOSE" aria-label="닫기">×</button></h2>
+		<h4 class="tit-field"><label for="QUICK_NAME">성함</label></h4>
+		<input type="text" id="QUICK_NAME" autocomplete="name">
+		<h4 class="tit-field"><label for="QUICK_CP">휴대폰 번호</label></h4>
+		<input type="tel" id="QUICK_CP" maxlength="13" autocomplete="tel">
+		<h4 class="tit-field">개인정보 취급방침</h4>
+		<div class="term-wrap">
+			<p class="term-tit">1. 수집하는 개인정보 항목</p>
+			<p>성함, 휴대폰 번호</p>
+			<p class="term-tit">2. 수집 및 이용 목적</p>
+			<p>상담 신청에 대한 확인 및 회신, 진료 예약 안내</p>
+			<p class="term-tit">3. 보유 및 이용 기간</p>
+			<p>수집·이용 목적이 달성된 후에는 지체 없이 파기합니다. 단, 관련 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관합니다.</p>
+			<p class="term-tit">4. 동의 거부 권리 안내</p>
+			<p>개인정보 수집·이용에 동의하지 않을 수 있으며, 동의하지 않을 경우 상담 신청이 제한될 수 있습니다.</p>
+		</div>
+		<div class="chk-area"><input type="checkbox" id="QUICK_AGREE"><label for="QUICK_AGREE"><span>개인정보 수집사용에 동의합니다.</span></label></div>
+		<button type="button" class="btn-submit" id="QUICK_SUBMIT">상담신청</button>
+	</div>
+
+	<script src="./assets/js/style.js"></script>
+	<script src="./assets/js/page/main.js"></script>
+</body>
+</html>

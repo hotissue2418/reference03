@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer{background:#fff; text-align:center; font-size:1em;}
+
+.footer-area{position:relative; box-sizing:border-box; padding:0 5% 10rem; background:#333; font-size:1.8rem; font-weight:400; text-align:left; color:#fff;}
+.footer-area .color-y{color:#eedcbe;}
+.footer-area .color-g{color:#b4b4b4;}
+.footer-area .bold{font-weight:700;}
+.footer-area .box{margin-bottom:4rem;}
+.footer-area .box.border{border-bottom:1px solid #4a4a4a;}
+.footer-area .box.align-c{text-align:center;}
+
+.footer-logo{display:inline-block; margin:2.5rem 0; font-size:3.4rem; font-weight:300; line-height:4rem; letter-spacing:-0.05em; color:#fff;}
+.footer-logo .amp{margin:0 .4rem; font-size:2rem;}
+.footer-logo .mj{color:#f2b5c4;}
+
+.footer-info .info-tit{position:relative; display:flex; align-items:flex-start; margin:0 0 2rem; font-size:1.8rem; line-height:1.2;}
+.footer-info .info-tit .ico{flex:none; width:1.8rem; height:1.8rem; margin-right:1.5rem; fill:currentColor;}
+.footer-info .info-tit .tel{position:absolute; top:0; left:13rem; margin:0; font-weight:400; line-height:1.4; text-decoration:none;}
+.footer-info .info-tit p{position:absolute; top:0; left:13rem; margin:0; font-weight:400; line-height:1.4;}
+.footer-info p{margin:0; line-height:130%;}
+.footer-info .box-tel{margin:0 0 3rem;}
+.footer-info .box-kakao{margin:0 0 5.5rem;}
+.footer-info .box-map{margin:0 0 3rem;}
+.footer-info .footer-bg{width:calc(90% - 3rem); margin:0 calc(5% + 1.5rem);}
+.footer-info .box.border{margin-bottom:2.5rem;}
+.footer-info .day-time{position:relative; margin:0 0 .25rem calc(5% + 1rem);}
+.footer-info .day-time span{position:absolute; top:0; left:8.5rem;}
+.footer-info .day-time.mt15{margin:1.5rem 0 0 calc(5% + 1rem);}
+.footer-info .day-time.mt10{margin:1rem 0 4rem calc(5% + 1rem);}
+
+/* SNS 아이콘 : 높이 1.8rem 고정, 폭은 아이콘별 비율 (유튜브·인스타·페이스북·블로그·카페), li 높이는 인라인 줄 높이(22px) */
+.footer-sns-list{display:flex; align-items:center; justify-content:space-evenly; margin:2.5rem 0; padding:0 5%;}
+.footer-sns-item{line-height:normal;}
+.footer-sns-item a,
+.footer-sns-item .ico{display:inline;}
+.footer-sns-item .ico{width:1.8rem; height:1.8rem; fill:#fff;}
+.footer-sns-item:nth-child(1) .ico{width:2.7rem;}
+.footer-sns-item:nth-child(2) .ico{width:1.8rem;}
+.footer-sns-item:nth-child(3) .ico{width:1.01rem;}
+.footer-sns-item:nth-child(4) .ico{width:2.27rem;}
+.footer-sns-item:nth-child(5) .ico{width:1.88rem;}
+
+/* 하단 정보 : 위 1px 라인 + padding-top 2rem, p 는 브라우저 기본 상하 여백(1em) 유지 */
+.footer-bottom{margin:0; padding:2rem 0 0; border-top:1px solid #4a4a4a;}
+.footer-bottom p{margin:1em 0; font-size:1.4rem; line-height:130%; letter-spacing:-0.5px; text-align:center;}
+.footer-bottom .link-list{display:flex; align-items:center; justify-content:center; letter-spacing:-0.2px;}
+.footer-bottom .link-list a{padding:0 1rem; font-size:1.6rem; color:#b4b4b4; text-decoration:none;}

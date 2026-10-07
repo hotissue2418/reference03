@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Quick Menu
+   하단 플로팅 상담 버튼(좌측 패널 우측 가장자리) / TOP 버튼(중앙 하단)
+   ========================================================================== */
+
+.quick-menu{position:fixed; bottom:3rem; left:calc(50% - 34rem); z-index:1002; transform:translateX(-50%); animation:quick-bounce 1.5s ease-in-out infinite; cursor:pointer;}
+@keyframes quick-bounce{0%{translate:0 0;} 23%{translate:0 .5rem;} 57%,100%{translate:0 0;}}
+.quick-menu-item{display:flex; align-items:center; justify-content:center; position:relative; width:12rem; height:4.5rem; margin:1rem auto; padding:0; border:none; border-radius:3rem; outline:none; background:none; color:#fff; text-align:center; text-decoration:none; cursor:pointer;}
+.quick-menu-item .txt{display:inline-block; margin:0; font-size:1.5rem; font-weight:700; letter-spacing:-1px;}
+.quick-menu-item.item-scan{background:linear-gradient(to bottom right,#29afb1 0%,#4bdcde 100%);}
+.quick-menu-item.item-scan .spark{width:2.8rem; margin:0 0 .8rem .4rem; fill:none; stroke:#fff; stroke-width:1.6;}
+.quick-menu-item.item-kakao{background:#222;}
+.quick-menu-item.item-counsel{background:#344f7a;}
+
+.top-btn{position:fixed; left:50%; bottom:2rem; z-index:99; display:flex; gap:12px; height:5rem; margin:0 0 2rem; opacity:0; pointer-events:none; transform:translateX(-50%); transition:opacity ease-in-out .3s; cursor:pointer;}
+.top-btn.on{opacity:1; pointer-events:all;}
+.top-btn .btn-top{display:flex; align-items:center; justify-content:center; width:5rem; height:5rem; border:2px solid rgba(255,255,255,.8); border-radius:50%; background:rgba(120,120,120,.55); font-size:1.4rem; font-weight:700; color:#fff;}
+
+@media screen and (max-width:1023px){
+	.quick-menu{left:auto; right:1.6rem; transform:none;}
+}
+
+
+/* ==========================================================================
+   Mobile / Tablet (1023px 이하)
+   하단 4칸 퀵바 / TOP 버튼 우측 하단 / PC 플로팅 상담 버튼 숨김
+   ========================================================================== */
+.quick-bar{display:none;}
+
+@media screen and (max-width:1023px){
+	.quick-menu{display:none;}
+
+	.quick-bar{position:fixed; bottom:0; left:0; z-index:50; display:grid; grid-template-columns:repeat(4,1fr); align-items:center; box-sizing:border-box; width:100%; padding:0 5%; background:#fff;}
+	.quick-bar a{padding:1.5rem 0; font-size:1.6rem; line-height:1.4; letter-spacing:-0.2px; text-align:center; color:#222; text-decoration:none;}
+	.quick-bar a > *{margin:0 auto;}
+	.quick-bar .ico{display:inline; width:3.6rem; height:3.6rem; fill:none; stroke:#222; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
+	.quick-bar p{margin:0;}
+
+	.top-btn{right:2.5%; bottom:calc(40px + 6rem); left:auto; z-index:51; gap:0; height:auto; margin:0; transform:none;}
+	.top-btn .btn-top{width:48px; height:48px; border:2px solid #fff; background:rgba(0,0,0,.45); font-size:1.4rem; font-weight:700; letter-spacing:0;}
+}

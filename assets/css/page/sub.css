@@ -1,0 +1,272 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Sub pages
+   서브 페이지 공통 : 헤더 높이(6rem) 만큼 본문을 내리고 전체 폭을 사용 (좌우 패널 없음)
+   ========================================================================== */
+
+/* 서브 공통 플로팅 : 퀵메뉴는 우측 하단, TOP 옆에 M VIEW 버튼 */
+@media screen and (min-width:1024px){
+	.page-sub .quick-menu{left:auto; right:3.2rem; bottom:2.5rem; transform:none;}
+	.page-sub .top-btn .btn-mview{display:block; width:14.8rem; height:5rem;}
+	.page-sub .top-btn .btn-mview img{display:block; width:100%; height:100%;}
+}
+@media screen and (max-width:1023px){
+	.page-sub .top-btn .btn-mview{display:none;}
+}
+
+/* 서브 공통 헤더 (PC) : 바 배경 흰색, 중앙 영역 우측에 메뉴 버튼 → 전체 메뉴(폭 498px 흰 패널 + 아코디언)가 중앙에 열림 */
+@media screen and (min-width:1024px){
+	.page-sub .top-bar{background:#fff;}
+	.page-sub .top-bar .center-area .menu-btn-pc{position:absolute; top:0; right:0; width:6rem; height:6rem; padding:0; border:0; background:url("../../images/layout/menu-btn.png") no-repeat center center; background-size:18px auto; cursor:pointer;}
+	.page-sub .top-bar .center-area .menu-btn-pc.on{background-image:url("../../images/layout/menu-close.png"); background-size:auto;}
+
+	.page-sub .menu-area{position:fixed; top:6rem; left:0; z-index:110; display:block; width:100%; height:calc(100% - 6rem); background:rgba(255,255,255,0); pointer-events:none; transition:all .3s;}
+	.page-sub .menu-area.on{background:rgba(255,255,255,.5); pointer-events:all;}
+	.page-sub .menu-area .menu-bg,
+	.page-sub .menu-area .menu-bg.on{display:none;}
+	.page-sub .menu-area .menu-list{position:relative; top:-20px; box-sizing:border-box; width:49.8rem; height:0; margin:0 auto; padding:0; overflow:hidden; background:#fff; opacity:0; text-align:left; transition:top .3s;}
+	.page-sub .menu-area.on .menu-list{top:0; height:100%; overflow-y:auto; opacity:1;}
+	.page-sub .menu-area .menu-list::-webkit-scrollbar{width:5px;}
+	.page-sub .menu-area .menu-list::-webkit-scrollbar-thumb{background:#344f7a;}
+	.page-sub .menu-area .menu-top{display:none;}
+	.page-sub .menu-area .depth01-list{display:flex; flex-direction:column; gap:5.4vh; padding:8rem 0 18rem;}
+	.page-sub .menu-area .depth01-item{position:relative;}
+	.page-sub .menu-area .big-menu{display:block; margin:0; font-family:var(--font-family-serif); font-size:3rem; font-weight:700; line-height:1; letter-spacing:-0.5px; color:#222; text-align:center; cursor:pointer;}
+	.page-sub .menu-area .depth01-item.select .big-menu{font-weight:800;}
+	.page-sub .menu-area .depth02-list{display:none; padding-top:2.8rem; text-align:center;}
+	.page-sub .menu-area .depth01-item.select .depth02-list{display:block;}
+	.page-sub .menu-area .depth02-list > div{display:block;}
+	.page-sub .menu-area .depth02-list a{display:inline-block; font-size:1.7rem; line-height:1.9; letter-spacing:-0.16rem; color:#000; text-decoration:none;}
+	.page-sub .menu-area .depth02-list a::after{content:"/"; padding:0 .6rem; font-size:1.7rem; font-weight:400; color:#000;}
+	.page-sub .menu-area .depth02-list a:last-child::after{display:none;}
+	.page-sub .menu-area .depth02-list a.ulthera{font-weight:500; color:#e69a20;}
+	.page-sub .menu-area .depth02-list a.thermage{font-weight:500; color:#a74398;}
+}
+@media screen and (max-width:1023px){
+	.page-sub .top-bar .center-area .menu-btn-pc{display:none;}
+}
+
+.container-area.sub-doctor-story{padding-top:6rem; background:#fff;}
+.sub-doctor-story .footer{background:#333;}
+
+/* --------------------------------------------------------------------------
+   대표원장 스토리 (doctor_story_pc.html)
+   -------------------------------------------------------------------------- */
+
+/* 상단 비주얼 : 1920 x 1110 이미지 (타이틀 문구는 이미지에 포함) */
+.sect-sub-visual{line-height:0;}
+.sect-sub-visual .bg{display:block; width:100%; height:auto; aspect-ratio:1920/1110;}
+
+/* 스토리 목록 : 홀수 행은 글 → 이미지, 짝수 행은 이미지 → 글 (DOM 순서 그대로) / 열 폭 677 : 572, 행 간격 18rem */
+.sect-doctor-story{padding:0 12%; text-align:left; color:#141414;}
+.sect-doctor-story .story-list{display:grid; row-gap:18rem; padding:18rem 0;}
+.sect-doctor-story .story-item{display:grid; grid-template-columns:677fr 572fr; column-gap:7rem; align-items:center; padding:0 7rem;}
+.sect-doctor-story .story-item .txt-area,
+.sect-doctor-story .story-item .img-area{padding:1px;}
+.sect-doctor-story .story-item .img-area img{display:block; width:100%; height:auto;}
+
+.sect-doctor-story .tit{margin:0; font-size:4rem; font-weight:800; line-height:5.2rem; letter-spacing:-2px;}
+.sect-doctor-story .tit-sub{margin:1rem 0 4rem; font-size:2.8rem; font-weight:600; line-height:1.4; letter-spacing:-1px;}
+.sect-doctor-story .txt{margin:4rem 0 0; font-size:2rem; font-weight:400; line-height:2.8rem; letter-spacing:-2px;}
+.sect-doctor-story .tit + .txt{margin-top:4rem;}
+.sect-doctor-story .txt-area span{color:#816a56;}
+.page-sub .top-btn .btn-top{border:0; border-radius:0; background:none;}
+.page-sub .top-btn .btn-top img{display:block; width:100%; height:100%;}
+
+/* 대표원장 메시지 : 1920 x 1642 배경 위에 폭 50% 콘텐츠를 가운데 정렬로 겹침 */
+.sect-doctor-message{position:relative; margin-top:10rem; text-align:center; color:#141414;}
+.sect-doctor-message .bg{display:block; width:100%; height:auto;}
+.sect-doctor-message .message-area{position:absolute; top:0; left:25%; display:block; width:50%;}
+.sect-doctor-message .tit{margin:0; font-size:4.8rem; font-weight:800; line-height:1.4; letter-spacing:-2.4px; color:#816a56;}
+.sect-doctor-message .img-typo{display:block; width:60%; margin:5rem auto;}
+.sect-doctor-message .img-ceo{display:block; width:100%; height:auto;}
+.sect-doctor-message .txt-area{padding:8rem 2rem 4rem; background:#fff;}
+.sect-doctor-message .tit-msg{margin:0; font-size:3.4rem; font-weight:800; line-height:1.6; letter-spacing:-1.7px;}
+.sect-doctor-message .tit-msg-sub{margin:0; font-size:2.8rem; font-weight:500; line-height:1.6; letter-spacing:-1.4px;}
+.sect-doctor-message .line{width:1px; height:3rem; margin:2rem auto; background:#d2d1d0;}
+.sect-doctor-message .txt{display:flex; justify-content:center; margin:0; font-size:2.2rem; font-weight:400; line-height:1.6; letter-spacing:-1.1px; text-align:left;}
+.sect-doctor-message .img-sign{position:relative; left:35%; display:block; width:20%; height:auto; margin:10rem auto 0;}
+
+/* 하단 푸터 : 서브는 전체 폭, 좌측 정렬 정보 */
+.sub-doctor-story .footer-info .footer-bg{width:50rem; margin:0 0 3rem;}
+
+/* 상담 혜택 팝업 (PC) : 딤 배경 위 가운데 385 x 746, 하단 폼 영역은 이미지 위에 absolute */
+.sub-popup{position:fixed; top:0; left:0; z-index:1009; display:none; width:100%; height:100%; background:rgba(0,0,0,.4);}
+.sub-popup.on{display:block;}
+.sub-popup .counsel-box{position:relative; width:38.5rem; margin:12rem auto 0; border-radius:1.3rem;}
+.sub-popup .bg{display:block; width:100%; height:auto; border-radius:1.3rem;}
+.sub-popup .bg-ph{aspect-ratio:1026/1982; background:#eee;} /* 배경 이미지 자리표시자 (연한 회색, 원본 비율 유지) */
+.sub-popup .btn-close{position:absolute; top:1rem; right:1.4rem; z-index:1; width:4rem; height:3rem; padding:0; border:0; background:none; font-size:1.5rem; color:transparent; cursor:pointer;}
+.sub-popup .info-box{position:absolute; left:1.9rem; bottom:3.7rem; width:34.7rem;}
+.sub-popup .form-box{box-sizing:border-box; padding:1.9rem 4.1rem 1.4rem; border-radius:.8rem; background:#fff; text-align:left;}
+.sub-popup .form-box .txt{margin:0 0 1.5rem; font-size:1.6rem; font-weight:500; line-height:1.4; text-align:center;}
+.sub-popup .form-box .txt span{font-weight:800;}
+.sub-popup .form-box input[type="text"],
+.sub-popup .form-box input[type="tel"]{display:block; box-sizing:border-box; width:100%; height:4.1rem; margin:0 0 1rem; padding:0 1rem; border:1px solid #7b6b58; background:#faf8f6; font-size:1.6rem; color:#141414;}
+.sub-popup .form-box .chk-area{margin-top:1.5rem; text-align:center;}
+.sub-popup .form-box .chk-area input{display:none;}
+.sub-popup .form-box .chk-area label{font-size:1.2rem; line-height:2.2rem; color:#141414; cursor:pointer;}
+.sub-popup .form-box .chk-area label::before{content:""; display:inline-block; box-sizing:border-box; width:1.4rem; height:1.4rem; border:1px solid #7b6b58; background:#faf8f6; vertical-align:middle;}
+.sub-popup .form-box .chk-area input:checked + label::before{background:#7b6b58;}
+.sub-popup .form-box .chk-area label span{margin-left:1.3rem;}
+.sub-popup .btn-link{display:block; width:27.7rem; margin:1rem auto 0; padding:.2rem 2rem; border:0; background:none; cursor:pointer;}
+.sub-popup .btn-link img{display:block; width:100%; height:auto;}
+
+/* 대표원장 스토리 플로팅 팝업 : 좌측 하단 고정, 펼침 400 x 491 / 접어두기 시 미니 239 x 129 (모바일·태블릿은 1023 이하 블록에서 0.9 배 + 위치만 변경) */
+.story-popup{position:fixed; bottom:4rem; left:6rem; z-index:109; width:40rem; text-align:left; color:#1e1e1e; transition:opacity .3s;}
+.story-popup .popup-box{border-radius:1.6rem; background:#fff; box-shadow:3px 5px 10px rgba(0,0,0,.16);}
+.story-popup .popup-mini{display:none; box-sizing:border-box; padding:1.6rem 2rem;}
+.story-popup.fold{width:23.9rem;}
+.story-popup.fold .popup-full{display:none;}
+.story-popup.fold .popup-mini{display:block;}
+.story-popup.hide{opacity:0; pointer-events:none;}
+
+.story-popup .popup-top{box-sizing:border-box; padding:1.6rem 2rem;}
+.story-popup .tit{margin:0; font-size:1.6rem; font-weight:600; line-height:2.4rem; letter-spacing:-0.2px;}
+.story-popup .popup-media{position:relative; width:100%; aspect-ratio:16/9;}
+.story-popup .popup-media iframe{display:block; width:100%; height:100%; border:0;}
+.story-popup .popup-cont{padding:0 2rem 1.6rem;}
+.story-popup .tit-popup{margin:0; padding:1.6rem 0 0; font-size:2rem; font-weight:600; line-height:3rem; letter-spacing:-0.2px;}
+.story-popup .txt-popup{margin:0; padding:.6rem 0 1.6rem; font-size:1.6rem; font-weight:400; line-height:2.4rem; letter-spacing:-0.2px;}
+.story-popup .btn-kakao{display:block; box-sizing:border-box; margin:0 0 1.6rem; padding:1.2rem 0; border-radius:1rem; background:#f9e547; font-size:1.6rem; font-weight:600; line-height:2.4rem; letter-spacing:-0.2px; color:#1e1e1e; text-align:center; text-decoration:none;}
+.story-popup .btn-list{display:flex; padding-top:1.6rem; border-top:1px solid #ddd;}
+.story-popup .btn-list button{flex:1; padding:0; text-align:center; border:0; background:none; font-size:1.4rem; font-weight:400; line-height:2.1rem; letter-spacing:-0.2px; color:#676673; cursor:pointer;}
+.story-popup .btn-list button + button{border-left:1px solid #ddd;}
+
+.story-popup .mini-top{display:flex; align-items:center; justify-content:space-between; height:3.6rem;}
+.story-popup .mini-top .tit{font-weight:700;}
+.story-popup .mini-top .tit img{display:inline; vertical-align:baseline;}
+.story-popup .btn-close-sm{width:2rem; height:3.6rem; padding:0; border:0; background:none; font-size:2.4rem; font-weight:600; line-height:3.6rem; color:#666; cursor:pointer;}
+.story-popup .btn-more{display:block; box-sizing:border-box; text-align:center; width:100%; height:4.5rem; margin-top:1.6rem; padding:1rem 0; border:0; border-radius:1rem; background:#5d472e; font-size:1.4rem; font-weight:600; line-height:2.1rem; letter-spacing:-0.2px; color:#fff; cursor:pointer;}
+
+/* PC / MO 분리 : 본문 줄바꿈이 달라 p.pc / p.mo 를 나눠 작성 (1024 이상 → .mo 숨김, 모바일·태블릿 1023 이하 → .pc 숨김) */
+.sect-doctor-story .tit-sub .pc,
+.sect-doctor-story .tit-sub .mo{color:inherit;}
+@media screen and (min-width:1024px){
+	.sect-doctor-story .mo,
+	.sect-doctor-message .mo{display:none;}
+}
+
+/* 모바일·태블릿 (1023 이하) : 원본과 같이 rem 값은 모바일·태블릿 공통 (rem 기준은 layout.css : 500 이하 7~10px, 501 이상 8px)
+   이미지 → 글 세로 배치, 가운데 정렬 / h2 3.7rem, h3 3rem, 본문 2rem
+   텍스트는 rem 고정, 이미지·배경은 폭에 비례하므로 태블릿에서는 메시지 배경 하단에 여백이 남는 것이 원본과 동일 */
+@media screen and (max-width:1023px){
+	.container-area.sub-doctor-story{padding-top:31.5rem;}
+	body.banner-closed .container-area.sub-doctor-story{padding-top:25.1rem;}
+
+	.sect-doctor-story .pc,
+	.sect-doctor-message .pc,
+	.sect-doctor-message .txt.pc{display:none;}
+
+	.sect-sub-visual .bg{aspect-ratio:720/1079;}
+
+	.sect-doctor-story{padding:0; text-align:center;}
+	.sect-doctor-story .story-list{row-gap:0; padding:0;}
+	.sect-doctor-story .story-item{grid-template-columns:1fr; row-gap:0; padding:0;}
+	.sect-doctor-story .story-item .img-area{order:-1; padding:0;}
+	.sect-doctor-story .story-item .txt-area{padding:8rem 0 17rem;}
+	.sect-doctor-story .tit{margin:0 0 3rem; font-size:3.7rem; line-height:1.4; letter-spacing:-0.05em;}
+	.sect-doctor-story .tit span{color:inherit;}
+	.sect-doctor-story .story-item:first-child .tit span{color:#816a56;}
+	.sect-doctor-story .tit-sub{margin:1rem 0 0; font-size:3rem; font-weight:800; line-height:1.4; letter-spacing:-0.05em; color:#816a56;}
+	.sect-doctor-story .txt,
+	.sect-doctor-story .tit + .txt{margin:3rem 0 0; font-size:2rem; line-height:1.6; letter-spacing:-0.05em;}
+
+	/* 대표원장 스토리 팝업 : PC 와 같은 카드(40rem)를 0.9 배로 줄여 퀵바 위 좌측(5%)에 고정 (bottom 은 원본 실측 100px@10px / 88px@8px) */
+	.story-popup{bottom:calc(6rem + 40px); left:5%; transform:scale(.9); transform-origin:left bottom;}
+
+	.sect-doctor-message{margin-top:0;}
+	.sect-doctor-message .message-area{left:5%; width:90%;}
+	.sect-doctor-message .tit{font-size:3.7rem; line-height:1.4; letter-spacing:-0.05em;}
+	.sect-doctor-message .img-typo{width:50%; margin:3rem auto;}
+	.sect-doctor-message .txt-area{padding:6rem 2rem 2rem;}
+	.sect-doctor-message .tit-msg{margin:0 0 4rem; font-size:3rem; line-height:1.4; letter-spacing:-0.05em;}
+	.sect-doctor-message .tit-msg-sub{font-size:2.2rem; font-weight:600; line-height:normal; letter-spacing:normal;}
+	.sect-doctor-message .line{display:none;}
+	.sect-doctor-message .txt{display:block; margin:3rem 0 0; font-size:1.7rem; font-weight:300; line-height:1.6; letter-spacing:-0.05em;}
+	.sect-doctor-message .img-sign{position:relative; top:-4rem; left:25%; width:40%; margin:14rem auto 0;}
+
+	.sub-popup,
+	.sub-popup.on{display:none;}
+}
+
+
+/* --------------------------------------------------------------------------
+   M VIEW (doctor_story_mo.html)
+   PC 에서 M VIEW 버튼을 누르면 보이는 화면 : layout.css 의 3단 구조 중앙 500px 컬럼에 모바일 본문을 그대로 사용
+   뷰포트가 PC 라서 미디어쿼리가 걸리지 않으므로, 위 모바일·태블릿(1023 이하) 블록과 같은 rem 값을 .page-sub-mo 로 한정해 적용
+   -------------------------------------------------------------------------- */
+.page-sub-mo .layout-center{padding-top:25rem; background:#fff;}
+
+/* 서브 탭메뉴 : 중앙 컬럼 상단(6rem) 고정, 높이 19rem. 아래로 스크롤하면 .none 으로 접힘 */
+.page-sub-mo .sub-menu-area{position:fixed; top:6rem; left:50%; z-index:1008; display:block; box-sizing:border-box; width:50rem; max-height:19rem; overflow:hidden; border-right:1px solid #d9d9d9; border-left:1px solid #d9d9d9; background:#fff; transform:translateX(-50%); transition:max-height .3s;}
+.page-sub-mo .sub-menu-area.none{max-height:0;}
+.page-sub-mo .sub-menu-area .big-menu{margin:3rem 0; font-family:var(--font-family-serif); font-size:4rem; font-weight:700; line-height:5.57rem; letter-spacing:-0.75px; color:#222; text-align:center;}
+.page-sub-mo .sub-menu-area .sub-menu-list{display:flex; margin:0; padding:0 2rem 2.83rem; overflow-x:auto; scrollbar-width:none;}
+.page-sub-mo .sub-menu-area .sub-menu-list::-webkit-scrollbar{display:none;}
+.page-sub-mo .sub-menu-area .sub-menu-item{flex:none; margin-right:.8rem; border:1px solid #eee6d9; border-radius:5rem; background:#fff;}
+.page-sub-mo .sub-menu-area .sub-menu-item a{display:block; padding:1rem 3rem; font-size:2rem; line-height:2.4rem; letter-spacing:-0.25px; color:#222; text-align:center; text-decoration:none; white-space:nowrap;}
+.page-sub-mo .sub-menu-area .sub-menu-item.select{border-color:#222; background:#222;}
+.page-sub-mo .sub-menu-area .sub-menu-item.select a{color:#fff;}
+
+/* 플로팅 : TOP 옆 PC VIEW 버튼 */
+.page-sub-mo .top-btn .btn-pcview{display:block; width:14.8rem; height:5rem;}
+.page-sub-mo .top-btn .btn-pcview img{display:block; width:100%; height:100%;}
+
+/* 본문 : 이미지 → 글 세로 배치, 가운데 정렬 / h2 3.7rem, h3 3rem, 본문 2rem */
+.page-sub-mo .sect-sub-visual .bg{aspect-ratio:720/1079;}
+
+.page-sub-mo .sect-doctor-story{padding:0; text-align:center;}
+.page-sub-mo .sect-doctor-story .story-list{row-gap:0; padding:0;}
+.page-sub-mo .sect-doctor-story .story-item{grid-template-columns:1fr; row-gap:0; padding:0;}
+.page-sub-mo .sect-doctor-story .story-item .img-area{padding:0;}
+.page-sub-mo .sect-doctor-story .story-item .txt-area{padding:8rem 0 17rem;}
+.page-sub-mo .sect-doctor-story .tit{margin:0 0 3rem; font-size:3.7rem; line-height:1.4; letter-spacing:-0.05em;}
+.page-sub-mo .sect-doctor-story .tit span{color:inherit;}
+.page-sub-mo .sect-doctor-story .story-item:first-child .tit span{color:#816a56;}
+.page-sub-mo .sect-doctor-story .tit-sub{margin:1rem 0 0; font-size:3rem; font-weight:800; line-height:1.4; letter-spacing:-0.05em; color:#816a56;}
+.page-sub-mo .sect-doctor-story .txt,
+.page-sub-mo .sect-doctor-story .tit + .txt{margin:3rem 0 0; font-size:2rem; line-height:1.6; letter-spacing:-0.05em;}
+
+/* 대표원장 메시지 */
+.page-sub-mo .sect-doctor-message{margin-top:0;}
+.page-sub-mo .sect-doctor-message .message-area{left:5%; width:90%;}
+.page-sub-mo .sect-doctor-message .tit{font-size:3.7rem; line-height:1.4; letter-spacing:-0.05em;}
+.page-sub-mo .sect-doctor-message .img-typo{width:50%; margin:3rem auto;}
+.page-sub-mo .sect-doctor-message .txt-area{padding:6rem 2rem 2rem;}
+.page-sub-mo .sect-doctor-message .tit-msg{margin:0 0 4rem; font-size:3rem; line-height:1.4; letter-spacing:-0.05em;}
+.page-sub-mo .sect-doctor-message .tit-msg-sub{font-size:2.2rem; font-weight:600; line-height:normal; letter-spacing:normal;}
+.page-sub-mo .sect-doctor-message .line{display:none;}
+.page-sub-mo .sect-doctor-message .txt{display:block; margin:3rem 0 0; font-size:1.7rem; font-weight:300; line-height:1.6; letter-spacing:-0.05em;}
+.page-sub-mo .sect-doctor-message .img-sign{position:relative; top:-4rem; left:25%; width:40%; margin:14rem auto 0;}
+
+/* 이미지 자리표시자 (회색 영역) : 원본 이미지 비율 유지 */
+.sect .ph-img{display:flex; align-items:center; justify-content:center; box-sizing:border-box; width:100%; background:#ccc; color:#555; font-size:1.2rem; font-weight:700; line-height:1.3; text-align:center; white-space:nowrap;}
+.sect-doctor-story .story-item:nth-child(1) .ph-img{aspect-ratio:563/757;}
+.sect-doctor-story .story-item:nth-child(2) .ph-img{aspect-ratio:674/757;}
+.sect-doctor-story .story-item:nth-child(3) .ph-img{aspect-ratio:564/758;}
+.sect-doctor-story .story-item:nth-child(4) .ph-img{aspect-ratio:674/816;}
+.sect-doctor-story .story-item:nth-child(5) .ph-img{aspect-ratio:563/748;}
+.sect-doctor-message .img-ceo.ph-img{aspect-ratio:974/541;}
+.sect-doctor-message .img-sign.ph-img{display:flex; width:20%; aspect-ratio:234/57; font-size:.6rem;}
+
+@media (max-width:1023px){
+	.sect-doctor-story .story-item:nth-child(1) .ph-img,
+	.sect-doctor-story .story-item:nth-child(2) .ph-img{aspect-ratio:706/936;}
+	.sect-doctor-story .story-item:nth-child(3) .ph-img{aspect-ratio:720/812;}
+	.sect-doctor-story .story-item:nth-child(4) .ph-img{aspect-ratio:720/626;}
+	.sect-doctor-story .story-item:nth-child(5) .ph-img{aspect-ratio:720/811;}
+	.sect-doctor-message .img-ceo.ph-img{aspect-ratio:639/410;}
+	.sect-doctor-message .img-sign.ph-img{width:40%; aspect-ratio:218/53;}
+}
+
+/* 이미지 자리표시자 : 모바일 전용 페이지 (원본 mo 이미지 비율) */
+.page-sub-mo .sect .ph-img{font-size:2.4rem;}
+.page-sub-mo .sect-doctor-story .story-item:nth-child(1) .ph-img,
+.page-sub-mo .sect-doctor-story .story-item:nth-child(2) .ph-img{aspect-ratio:706/936;}
+.page-sub-mo .sect-doctor-story .story-item:nth-child(3) .ph-img{aspect-ratio:720/812;}
+.page-sub-mo .sect-doctor-story .story-item:nth-child(4) .ph-img{aspect-ratio:720/626;}
+.page-sub-mo .sect-doctor-story .story-item:nth-child(5) .ph-img{aspect-ratio:720/811;}
+.page-sub-mo .sect-doctor-message .img-ceo.ph-img{aspect-ratio:639/410;}
+.page-sub-mo .sect-doctor-message .img-sign.ph-img{width:40%; aspect-ratio:218/53; font-size:1.2rem;}

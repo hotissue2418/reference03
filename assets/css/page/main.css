@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Main Page
+   중앙 500px 컬럼 : 고정 배경 영상 위로 섹션이 스크롤되는 구조
+   ========================================================================== */
+
+/* 배경 영상 (sticky, 외부 영상 대신 placeholder 배경) */
+.sect-main-visual{position:sticky; top:6rem; left:0; width:100%; height:100vh;}
+.sect-main-visual .video-area{width:100%; height:100%; background:linear-gradient(170deg,#c9ced6 0%,#9ea6b3 45%,#6f7a8c 100%);}
+.sect-main-visual .metascan-go{position:absolute; bottom:0; left:0; z-index:0; width:80%; height:100%;}
+.sect-main-visual .metascan-go a{display:block; width:100%; height:100%;}
+.sect-main-visual .dim-area{position:absolute; bottom:0; left:0; z-index:-1; width:100%; height:100%; background:rgba(0,0,0,0);}
+
+.main-view{position:relative;}
+
+/* 공통 : 영문 세리프 섹션 타이틀 */
+.tit-serif{font-family:var(--font-family-serif); font-size:5rem; font-weight:700; line-height:130%; letter-spacing:-2px; text-transform:uppercase;}
+
+/* 공통 : 라운드 라인 버튼 */
+.btn-view{display:block; position:relative; width:84%; margin:0 auto; padding:1.5rem 4rem; line-height:normal; border:1px solid #d9d9d9; border-radius:5rem; font-size:2.2rem; font-weight:400; letter-spacing:-0.25px; text-align:left; text-decoration:none; color:#fff;}
+.btn-view .arrow{position:absolute; top:50%; right:3rem; width:1.956rem; height:1.6rem; fill:none; stroke:#a6a6a6; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; transform:translateY(-50%);}
+
+/* 시그니처 프로토콜 */
+.sect-main-signature{width:90%; margin:15rem auto 0; padding:0 5% 20rem; text-align:left; color:#fff;}
+.sect-main-signature .signature-item{position:relative; margin:15rem auto 10rem; padding:15vh 0 0;}
+.sect-main-signature .signature-item:nth-child(2){margin:35rem auto 5rem;}
+.sect-main-signature .tit-serif{position:absolute; top:2.5rem; left:0; z-index:5; margin:0 0 5rem; opacity:0;}
+.sect-main-signature .img-area img{display:block; width:100%; border-top-left-radius:11.5rem;}
+.sect-main-signature .tit-copy{margin:2rem 0 1.5rem; font-size:2.4rem; font-weight:700; letter-spacing:-0.5px; text-align:center;}
+.sect-main-signature .txt-copy{margin:0 0 3rem; font-size:1.8rem; font-weight:400; letter-spacing:-0.5px; text-align:center;}
+
+/* 추천 이벤트 */
+.sect-main-event{width:90%; margin:0 auto; padding:5% 5% 10rem; text-align:left; color:#fff;}
+.sect-main-event .tit-serif{margin:0; opacity:0; transform:translateY(3rem);}
+.sect-main-event .event-list{margin:4rem 0 0;}
+.sect-main-event .event-item{position:relative; padding:1.5rem 0;}
+.sect-main-event .event-item img{display:block; width:100%; border-radius:.6rem; box-shadow:3px 3px 8px rgba(55,55,55,.25);}
+
+/* 베스트 리뷰 */
+.sect-main-review{position:relative; padding:15vh 30% 20rem 10%; overflow:hidden; text-align:left; color:#fff;}
+.sect-main-review .tit-serif{margin:0 0 3rem; opacity:0; transform:translateY(5rem);}
+.sect-main-review .review-slider{width:100%; overflow:visible;}
+.sect-main-review .review-item{position:relative; height:auto;}
+.sect-main-review .review-item img{display:block; width:100%; border-radius:2rem; box-shadow:0 .5rem 1rem rgba(0,0,0,.3);}
+.sect-main-review .review-cover{position:absolute; top:0; left:0; z-index:2; display:none; width:100%; height:100%; border-radius:2rem; background:rgba(0,0,0,.8); text-align:center; opacity:0; transition:all .3s;}
+.sect-main-review .review-item:hover .review-cover{display:block; opacity:1;}
+.sect-main-review .review-cover .cover-inner{position:absolute; top:50%; left:50%; width:70%; transform:translate(-50%,-50%);}
+.sect-main-review .review-cover .link{display:block; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #fff; font-size:3rem; font-weight:700; color:#fff; text-decoration:none;}
+.sect-main-review .review-cover .btn-zzim{margin:0; font-size:2rem; font-weight:400; color:#fff; cursor:pointer;}
+.sect-main-review .review-cover .btn-zzim .heart{display:inline-block; margin-left:1rem; vertical-align:middle; fill:none; stroke:#fff; stroke-width:2; width:2rem; height:2rem;}
+.sect-main-review .review-cover .btn-zzim.active .heart{fill:#e0424f; stroke:#e0424f;}
+
+
+/* ==========================================================================
+   Mobile / Tablet (1023px 이하)
+   고정 헤더(4rem + 6rem + 배너 6rem) 아래에서 영상이 sticky 로 붙는 위치
+   ========================================================================== */
+@media screen and (max-width:1023px){
+	.sect-main-visual{top:15rem;}
+	body.banner-closed .sect-main-visual{top:9.8rem;}
+}
+
+/* 모바일/태블릿 : 버튼 화살표 » 는 테두리와 같은 #d9d9d9, 선 굵기 1.5, 끝 평평하게 (원본 ico_view.png 분석값) */
+@media screen and (max-width:1023px){
+	.btn-view .arrow{stroke:#d9d9d9; stroke-width:1.5; stroke-linecap:butt; stroke-linejoin:miter;}
+}
